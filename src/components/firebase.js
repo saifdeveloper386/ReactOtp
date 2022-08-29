@@ -1,6 +1,6 @@
 
 import { getApp, initializeApp } from 'firebase/app';
-import { getAuth, signInWithPhoneNumber  ,RecaptchaVerifier } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyAllNKrfNOv0gUTmiAQk4wGZ3ewi9nvo7A",
     authDomain: "fir-demo-eff02.firebaseapp.com",
