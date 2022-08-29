@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "./firebase";
-import { getAuth, signInWithPhoneNumber ,RecaptchaVerifier} from "firebase/auth";
+import {  signInWithPhoneNumber ,RecaptchaVerifier} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState("");
 
-  const appVerifier = window.recaptchaVerifier;
+//   const appVerifier = window.recaptchaVerifier;
  const getOtp=()=>{
     if ("OTPCredential" in window) {
         window.addEventListener("DOMContentLoaded", (e) => {
@@ -48,7 +48,7 @@ const generateRecaptcha=()=>{
     window.recaptchaVerifier=new RecaptchaVerifier("recaptcha-container",{
         "size":"invisible",
         "callback":(response)=>{
-    
+    console.log(response)
         }
     },auth)
 }
@@ -77,10 +77,12 @@ console.log(err)
       .confirm(otp)
       .then((result) => {
         alert("right code");
+        console.log(result)
        navigate("/main")
       })
       .catch((err) => {
         alert("Wrong code");
+        console.log(err)
       });
   };
 
